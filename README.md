@@ -12,9 +12,18 @@ A kernel module can be used to change the register settings to allow user access
 
 This project is a simple kernel module which does just this.
 Simply copy the files to somewhere on your Bela, then from the command line:
-# cd to the folder containing the files.
-# make
-# insmod cycleCounter.ko
+
+cd to the folder containing the files.
+
+make
+
+insmod cycleCounter.ko
+
+
+Although this is not a Bela project, you can still just drag it into the IDE to easily get the files onto the Bela.
+It will complain, but it will work.
+
+Read the C file for more information.
 
 Now go and look at https://github.com/sjbaines/belaCycleCountProfileTest for an example of how to use.
 
