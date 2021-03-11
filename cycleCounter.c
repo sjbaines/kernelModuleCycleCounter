@@ -19,9 +19,9 @@
 #include <linux/init.h>      // For __init and __exit macros
 
 MODULE_LICENSE("Public Domain");
-MODULE_DESCRIPTION("Module to enable Cycle Counter on ARM 7 Cortex 8 CPU");
+MODULE_DESCRIPTION("Module to enable Cycle Counter on ARM v7 Cortex 8 CPU");
 
-static int __init hello_init(void)
+static int __init cycle_counter_init(void)
 {
     printk(KERN_INFO "Enabling user access to Cycle Counter register (CCNT)\n");
     asm ("MCR p15, 0, %0, C9, C14, 0\n\t" :: "r"(1)); // Allow user access
@@ -30,10 +30,11 @@ static int __init hello_init(void)
 }
 
 
-static void __exit hello_cleanup(void)
+static void __exit cycle_counter_cleanup(void)
 {
+	printk(KERN_INFO "Exiting Cycle Counter module.\n");
 }
 
-module_init(hello_init);
-module_exit(hello_cleanup);
+module_init(cycle_counter_init);
+module_exit(cycle_counter_cleanup);
 
